@@ -1,39 +1,40 @@
 #include <stdio.h>
 
 /**
- * main - function to print combination of two numbers
+ * main - prints all possible different combinations of two digits
  *
- * Return : 0 on success
+ * Return: Always 0 (success)
+ *
  */
 
 int main(void)
-{
-	int i = '0';
-	int j = '0';
 
-	while (i <= '9')
+{
+	int ones = '0';
+	int tens = '0';
+	
+	for (tens = '0'; tens <= '9'; tens++)/* prints tens digit*/
 	{
-		while (j <= '9')
+		for (ones = '0'; ones <= '9'; ones++)/* prints ones digit*/
 		{
-			if (!(i > j) || i == j)
+			if (!((ones == tens) || (tens > ones)))/*eliminates repitition*/
 			{
-				putchar(i);
-				putchar(j);
-				if (i == '8' && j == '9')
-				{
-					putchar('\n');
-				}
-				else
+				putchar(tens);
+				putchar(ones);
+				if (!(ones == '9' && tens == '8'))/*addes comma and space*/
 				{
 					putchar(',');
 					putchar(' ');
 				}
 
 			}
-			j++;
+
 		}
-		j = '0';
-		i++;
+
 	}
+
+putchar('\n');
+
 return (0);
+
 }

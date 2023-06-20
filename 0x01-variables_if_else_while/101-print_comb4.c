@@ -15,10 +15,11 @@ int main(void)
 	{
 		for (tens = '0'; tens <= '9'; tens++)
 		{
-			if (!((ones == tens) || (tens == hundreds) ||
-						(tens > ones) || (hundreds > tens)))/*eliminates repitation*/
+			for (ones = '0'; ones <= '9'; ones++)
 			{
-				putchar(hundreds);
+				if (!((ones == tens) || (tens == hundreds) ||
+						(tens > ones) || (hundreds > tens)))/*eliminates repitation*/
+					putchar(hundreds);
 				putchar(tens);
 				putchar(ones);
 				if (!(ones == '9' && hundreds == '7' &&
